@@ -24,8 +24,8 @@ int main(int argc, char **argv)
 	usleep(100*1000);//sleep for 100ms
 	datachar = serialDataAvail(serFd);
 	printf("%d \n",datachar);
-	
-	
+	for(i=0,i<datachar,i++)
+		printf("%c\n",serialGetchar(serFd);	
 	serialClose(serFd);
 	
 
