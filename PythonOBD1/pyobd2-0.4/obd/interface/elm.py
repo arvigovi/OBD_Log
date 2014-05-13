@@ -213,7 +213,7 @@ class ELM32X(Interface):
             # The first character might get eaten if the interface was busy,
             # so write a second one (again so that the lone CR doesn't repeat
             # the previous command)
-            port.write("\r")
+            port.write("\x7F\x7F\r")
             port.set_timeout(timeout)
             try:
                 response = port.read_until_string(ELM32X.PROMPT)
