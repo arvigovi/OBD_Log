@@ -91,8 +91,7 @@ def create(identifier, argument_name=""):
             except:
                 pass
         else:
-            print "Here"
-			message = "Unable to connect to scanner at %s; " % identifier
+            message = "Test here: Unable to connect to scanner at %s; " % identifier
             message += "is it connected and powered?\n"
             raise InterfaceNotFound(message)
     else:
