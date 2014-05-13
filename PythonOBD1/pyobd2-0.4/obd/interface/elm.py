@@ -108,7 +108,8 @@ def create(port, callback=None, baud=None):
     if identifier.startswith("ATI\r"): identifier = identifier[4:]
     debug(identifier)
     chip_identifier, chip_version = identifier.split(" ")
-
+    print identifier
+     
     # Check for extended command set
     extended = ELM32X._at_cmd(port, "STI")
     if extended.startswith("STI\r"): extended = extended[4:]
