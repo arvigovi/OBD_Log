@@ -93,7 +93,7 @@ def create(port, callback=None, baud=None):
     baud -- the baud rate to use, or None (default) to auto-detect
     """
     # Use the appropriate baud rate, auto-detecting if requested
-    print "Reached here"
+    #print "Reached here"
     if baud:
         if port.get_baudrate() != baud:
             untested("specifying the baud rate for obd.interface.elm.create()")
@@ -102,6 +102,7 @@ def create(port, callback=None, baud=None):
         current_baud = ELM32X.detect_baudrate(port)
         if not current_baud:
             raise InterfaceError("Unable to connect to ELM; does it have power?")
+    print "Reached here"
     # Query the interface for its identity
     identifier = ELM32X._at_cmd(port, "ATI")
     if identifier.startswith("ATI\r"): identifier = identifier[4:]
