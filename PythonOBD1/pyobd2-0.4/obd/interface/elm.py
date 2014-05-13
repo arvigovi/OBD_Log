@@ -113,7 +113,7 @@ def create(port, callback=None, baud=None):
     if extended != "?":
         untested(extended)
         chip_identifier, chip_version = extended.rsplit(" ", 1)
-
+    print "Reached here"
     # Create an instance of the appropriate ELM32X subclass
     try:
         elm_class = _classes[chip_identifier]
