@@ -202,7 +202,7 @@ class ELM32X(Interface):
         # slowest, on the theory that anyone who's using a slow baud rate is
         # going to be less picky about the time required to detect it.
         # bauds = [ 38400, 9600, 230400, 115200, 57600, 19200 ]
-		bauds = [115200]
+		bauds = [ 115200 ]
 		
         for baud in bauds:
             port.set_baudrate(baud)
