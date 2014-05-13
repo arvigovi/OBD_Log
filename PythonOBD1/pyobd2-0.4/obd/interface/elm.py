@@ -213,7 +213,7 @@ class ELM32X(Interface):
             # The first character might get eaten if the interface was busy,
             # so write a second one (again so that the lone CR doesn't repeat
             # the previous command)
-            port.write("\x7F\x7F\r")
+            port.write("\r")
             port.set_timeout(timeout)
             try:
                 response = port.read_until_string(ELM32X.PROMPT)
@@ -221,7 +221,7 @@ class ELM32X(Interface):
                 continue
 
             if (response.endswith("\r\r>")):
-                #print "%d baud detected (%r)" % (baud, response)
+                print "%d baud detected (%r)" % (baud, response)
                 break
                 
         else:
