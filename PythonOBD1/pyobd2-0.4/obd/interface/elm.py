@@ -93,6 +93,7 @@ def create(port, callback=None, baud=None):
     baud -- the baud rate to use, or None (default) to auto-detect
     """
     # Use the appropriate baud rate, auto-detecting if requested
+    print "Reached here"
     if baud:
         if port.get_baudrate() != baud:
             untested("specifying the baud rate for obd.interface.elm.create()")
@@ -113,7 +114,7 @@ def create(port, callback=None, baud=None):
     if extended != "?":
         untested(extended)
         chip_identifier, chip_version = extended.rsplit(" ", 1)
-    print "Reached here"
+    
     # Create an instance of the appropriate ELM32X subclass
     try:
         elm_class = _classes[chip_identifier]
