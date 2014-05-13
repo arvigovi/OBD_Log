@@ -102,13 +102,13 @@ def create(port, callback=None, baud=None):
         current_baud = ELM32X.detect_baudrate(port)
         if not current_baud:
             raise InterfaceError("Unable to connect to ELM; does it have power?")
-    print "Reached here"
+    #print "Reached here"
     # Query the interface for its identity
     identifier = ELM32X._at_cmd(port, "ATI")
     if identifier.startswith("ATI\r"): identifier = identifier[4:]
     debug(identifier)
     chip_identifier, chip_version = identifier.split(" ")
-    print identifier
+    #print identifier
      
     # Check for extended command set
     extended = ELM32X._at_cmd(port, "STI")
@@ -116,7 +116,7 @@ def create(port, callback=None, baud=None):
     if extended != "?":
         untested(extended)
         chip_identifier, chip_version = extended.rsplit(" ", 1)
-    
+    print extended
     # Create an instance of the appropriate ELM32X subclass
     try:
         elm_class = _classes[chip_identifier]
